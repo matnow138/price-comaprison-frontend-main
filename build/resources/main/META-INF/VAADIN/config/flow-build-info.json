@@ -1,0 +1,18 @@
+{
+  "productionMode": false,
+  "useDeprecatedV14Bootstrapping": false,
+  "eagerServerLoad": false,
+  "npmFolder": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main",
+  "node.version": "v18.12.1",
+  "node.download.root": "https://nodejs.org/dist/",
+  "generatedFolder": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\build\\frontend",
+  "frontendFolder": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\frontend",
+  "connect.javaSourceFolder": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\src\\main\\java",
+  "javaResourceFolder": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\src\\main\\resources",
+  "connect.applicationProperties": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\src\\main\\resources\\application.properties",
+  "connect.openApiFile": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\build\\generated-resources\\openapi.json",
+  "project.frontend.generated": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\frontend\\generated",
+  "pnpm.enable": true,
+  "require.home.node": false,
+  "build.folder": "build"
+}

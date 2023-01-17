@@ -1,0 +1,25 @@
+server:
+  port : 8091
+
+offers:
+  client:
+    url: http://localhost:8080/
+
+spring:
+  application:
+    name: frontend
+  profiles:
+    active: master
+  cloud:
+    config: frontend
+    enabled: false
+    username: configUser
+    password: configPassword
+  discovery:
+    service-id: cloud
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discUser:discPassword@localhost:8082/eureka
