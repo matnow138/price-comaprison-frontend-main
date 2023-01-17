@@ -1,0 +1,65 @@
+buildscript {
+    repositories {
+    	mavenCentral()
+	    maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
+        maven { setUrl("https://maven.vaadin.com/vaadin-addons") }
+		}
+}
+plugins {
+	id 'org.springframework.boot' version '2.7.6'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'java'
+	id 'com.vaadin'
+}
+
+defaultTasks("clean", "build")
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = "17"
+
+repositories {
+	mavenCentral()
+	maven { setUrl("https://maven.vaadin.com/vaadin-prereleases") }
+	maven { setUrl("https://maven.vaadin.com/vaadin-addons") }
+}
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+dependencies {
+	implementation('com.vaadin:vaadin-spring-boot-starter')
+	implementation('org.javamoney:moneta:1.1')
+	implementation 'org.projectlombok:lombok:1.18.24'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}
+ext {
+	set('springCloudVersion', "2021.0.5")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.vaadin:vaadin-bom:$vaadinVersion"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
+
+// The following pnpmEnable = true is not needed as pnpm is used by default,
+// this is just an example of how to configure the Gradle Vaadin Plugin:
+// for more configuration options please see: https://vaadin.com/docs/latest/guide/start/gradle/#all-options
+vaadin {
+	pnpmEnable = true
+}
+targetCompatibility = JavaVersion.VERSION_17

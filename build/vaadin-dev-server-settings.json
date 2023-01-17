@@ -1,0 +1,16 @@
+{
+  "frontendFolder": "C:/Users/Nowaki/IdeaProjects/price-comaprison-frontend-main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "C:/Users/Nowaki/IdeaProjects/price-comaprison-frontend-main/frontend/generated/jar-resources",
+  "staticOutput": "C:/Users/Nowaki/IdeaProjects/price-comaprison-frontend-main/build/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\build\\classes\\META-INF\\VAADIN\\config",
+  "frontendBundleOutput": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\build\\classes\\META-INF\\VAADIN\\webapp",
+  "jarResourcesFolder": "C:/Users/Nowaki/IdeaProjects/price-comaprison-frontend-main/frontend/generated/jar-resources",
+  "generatedFlowImportsFolder": "build/frontend",
+  "themeName": "",
+  "clientServiceWorkerSource": "C:\\Users\\Nowaki\\IdeaProjects\\price-comaprison-frontend-main\\build\\sw.ts",
+  "pwaEnabled": true,
+  "offlineEnabled": true,
+  "offlinePath": "'.'"
+}
