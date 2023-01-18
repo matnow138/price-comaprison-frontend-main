@@ -33,6 +33,8 @@ public class AddOffer extends FormLayout {
     @PropertyId("targetCurrency")
     private final Select<CurrencyUnit> currencySelectField = new Select<>();
 
+    @PropertyId("userId")
+    private final TextField userId = new TextField("User ID");
     private final Button save = new Button("Save");
 
     private final Binder<AmazonOfferDto> binder = new Binder<>(AmazonOfferDto.class);
@@ -41,7 +43,7 @@ public class AddOffer extends FormLayout {
     public AddOffer(OfferService offerService) {
         this.offerService = offerService;
 
-        HorizontalLayout fields = new HorizontalLayout(asin, targetPriceField, currencySelectField);
+        HorizontalLayout fields = new HorizontalLayout(asin, targetPriceField, currencySelectField,userId);
 
         HorizontalLayout buttons = new HorizontalLayout(save);
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);

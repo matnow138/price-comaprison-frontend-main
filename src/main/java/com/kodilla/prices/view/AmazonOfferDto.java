@@ -12,6 +12,7 @@ public class AmazonOfferDto {
     private String asin;
     private Double targetPrice;
     private CurrencyUnit targetCurrency;
+    private String userId;
 
     public AmazonOfferDto(String id, String asin, Double targetPrice, CurrencyUnit targetCurrency) {
         this.id = id;

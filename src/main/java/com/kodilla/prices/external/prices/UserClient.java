@@ -32,7 +32,7 @@ public class UserClient {
                 baseUrl(),
                 "POST",
                 jsonBodyPublisher(userDto),
-                HttpResponse.BodyHandlers.discarding(),
+                HttpResponse.BodyHandlers.ofString(),
                 userDto
         );
 
@@ -46,19 +46,22 @@ public class UserClient {
         }
     }
 
-    private Void send(UriComponentsBuilder uriComponentsBuilder, String method, UserDto userDto){
-        return send(uriComponentsBuilder, method, HttpRequest.BodyPublishers.noBody(),HttpResponse.BodyHandlers.discarding(), userDto);
+    private Void send(UriComponentsBuilder uriComponentsBuilder, String method, UserDto userDto) throws  JsonProcessingException{
+        return send(uriComponentsBuilder, method, HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(userDto)),HttpResponse.BodyHandlers.discarding(), userDto);
     }
     private <T> T send(UriComponentsBuilder uriComponentsBuilder, String method, HttpRequest.BodyPublisher bodyPublisher, HttpResponse.BodyHandler<T> bodyHandler, UserDto userDto){
         URI uri = uriComponentsBuilder.build().toUri();
         try{
+            logger.info("sending item: " +userDto);
             T responseBody =  HttpClient.newHttpClient()
                     .send(HttpRequest.newBuilder(uri)
+                            .header("Content-Type","application/json")
                             .method(method, HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(userDto)))
                             .build(),
                             bodyHandler)
                     .body();
-            logger.info("Sending request to {}, ended with {}", uri,responseBody);
+            logger.info("Response:{}", responseBody.toString());
+            logger.info("Sending request to {}, ended with {}", uri,responseBody.toString());
             return responseBody;
         }catch (Exception e){
             throw new RestClientException("Error performing request", e);
